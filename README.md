@@ -5,9 +5,9 @@ A small project - loading some data and trying to visualize it through an abstra
 Open up the terminal
 install node.js `sudo apt-get install npm`
 you might need to be in root
-`sudo su` after entering root-mode type: 
+`sudo su` after entering root-mode type:
 `apt-get install npm`
-After install run
+After install run  
 `npm install -g http-server`
 
 ## Starting up server
