@@ -5,7 +5,7 @@ A small project - loading some data and trying to visualize it through an abstra
 Open up the terminal
 install node.js `sudo apt-get install npm`
 you might need to be in root
-`sudo su`
+`sudo su`  
 `apt-get install npm`
 After install run
 `npm install -g http-server`
