@@ -51,96 +51,97 @@
     <label for="" id="NO2Text">hello</label>
 </div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
-<script>
-    var counter = -1;
-    $.getJSON("AirQuality.json", function (json) {
-        var margin = {
-                top: 40,
-                right: 40,
-                bottom: 40,
-                left: 40
-            },
-            width = 960 - margin.left - margin.right,
-            height = 900 - margin.top - margin.bottom;
+<div id="scriptDiv">
+    <script>
+        var counter = -1;
+        $.getJSON("AirQuality.json", function (json) {
+            var margin = {
+                    top: 200,
+                    right: 40,
+                    bottom: 40,
+                    left: 40
+                },
+                width = 960 - margin.left - margin.right,
+                height = 1250 - margin.top - margin.bottom;
 
-        var y = d3.scale.ordinal().domain(d3.range(1)).rangePoints([0, height]);
+            var y = d3.scale.ordinal().domain(d3.range(1)).rangePoints([0, height]);
 
-        var svg = d3.select("body")
-            .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-        svg.selectAll("circle")
-            .data(y.domain())
-            .enter()
-            .append("circle")
-            .attr("stroke-width", 20)
-            .attr("r", 20)
-            .attr("fill", "green")
-            .attr("cx", width / 2)
-            .attr("cy", y)
-            .each(pulse);
+            var svg = d3.select("body")
+                .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            svg.selectAll("circle")
+                .data(y.domain())
+                .enter()
+                .append("circle")
+                .attr("stroke-width", 20)
+                .attr("r", 20)
+                .attr("fill", "green")
+                .attr("cx", width / 2)
+                .attr("cy", y)
+                .each(pulse);
 
-        function pulse() {
-            var circle = svg.select("circle");
-            (function repeat() {
-                counter++;
-                $("#date").text(json[counter]["Date"]);
-                $("#time").text(json[counter]["Time"]);
-                var C6H6Value = json[counter]["C6H6(GT)"];
-                var NO2Value = json[counter]["NO2(GT)"];
+            function pulse() {
+                var circle = svg.select("circle");
+                (function repeat() {
+                    counter++;
+                    $("#date").text(json[counter]["Date"]);
+                    $("#time").text(json[counter]["Time"]);
+                    var C6H6Value = json[counter]["C6H6(GT)"];
+                    var NO2Value = json[counter]["NO2(GT)"];
 
-                $("#NO2Text").text(NO2Value);
-                $("#C6H6Text").text(C6H6Value);
+                    $("#NO2Text").text(NO2Value);
+                    $("#C6H6Text").text(C6H6Value);
 
-                console.log("C6h6 value: " + C6H6Value);
-                console.log("NO2 value: " + NO2Value);
-                var color;
+                    console.log("C6h6 value: " + C6H6Value);
+                    console.log("NO2 value: " + NO2Value);
+                    var color;
 
-                if (NO2Value < 0) {
-                    color = d3.rgb(0, 0, 0);
-                }
-                if (NO2Value >= 0 && NO2Value < 50) {
-                    color = d3.rgb(121, 188, 106);
-                }
-                if (NO2Value >= 50 && NO2Value < 100) {
-                    color = d3.rgb(187, 207, 76);
-                }
-                if (NO2Value >= 100 && NO2Value < 150) {
-                    color = d3.rgb(238, 194, 11);
-                }
-                if (NO2Value >= 150 && NO2Value < 200) {
-                    color = d3.rgb(242, 147, 5);
-                }
-                if (NO2Value >= 200) {
-                    color = d3.rgb(150, 0, 24);
-                }
+                    if (NO2Value < 0) {
+                        color = d3.rgb(0, 0, 0);
+                    }
+                    if (NO2Value >= 0 && NO2Value < 50) {
+                        color = d3.rgb(121, 188, 106);
+                    }
+                    if (NO2Value >= 50 && NO2Value < 100) {
+                        color = d3.rgb(187, 207, 76);
+                    }
+                    if (NO2Value >= 100 && NO2Value < 150) {
+                        color = d3.rgb(238, 194, 11);
+                    }
+                    if (NO2Value >= 150 && NO2Value < 200) {
+                        color = d3.rgb(242, 147, 5);
+                    }
+                    if (NO2Value >= 200) {
+                        color = d3.rgb(150, 0, 24);
+                    }
 
 
-                console.log(color);
-                circle = circle.transition()
-                    .duration(1500)
-                    .attr("stroke-width", 20)
-                    .attr("r", 20)
-                    .attr("fill", color)
-                    .transition()
-                    .duration(1500)
-                    .attr('stroke-width', 0.5)
-                    .attr("r", 20 * C6H6Value)
-                    .ease('sine')
-                    .each("end", repeat);
-            })();
-        }
+                    console.log(color);
+                    circle = circle.transition()
+                        .duration(1500)
+                        .attr("stroke-width", 20)
+                        .attr("r", 20)
+                        .attr("fill", color)
+                        .transition()
+                        .duration(1500)
+                        .attr('stroke-width', 0.5)
+                        .attr("r", 20 * C6H6Value)
+                        .ease('sine')
+                        .each("end", repeat);
+                })();
+            }
 
-        json.forEach(function (d, i) {
+            json.forEach(function (d, i) {
+
+            });
+            return json;
 
         });
-        return json;
 
-    });
-
-</script>
-
+    </script>
+</div>
 
 </body>
 </html>

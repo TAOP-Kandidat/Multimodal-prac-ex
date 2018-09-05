@@ -3,9 +3,14 @@ svg {
 }
 img {
     float:left;
-    width:500px;
-    height: 40px;
+    width:750px;
+    height: 150px;
+    position: relative;
+    margin-top: 100px;
 }
 div{
     float: left;
+    position: absolute;
+    margin-top: 20px;
 }
+
