@@ -1,16 +1,29 @@
 svg {
-  position: fixed;
+
+    position: relative;
+
+
+
 }
 img {
     float:left;
     width:750px;
     height: 150px;
-    position: relative;
-    margin-top: 100px;
+    position: fixed;
+    margin-top: 0px;
+    margin-left: 130px;
+    z-index: 2;
 }
 div{
     float: left;
     position: absolute;
-    margin-top: 20px;
+
+
 }
+.something{
+    margin-top: 25px;
+    float: left;
+    position: fixed;
+}
+
 

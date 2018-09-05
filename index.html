@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
+
     <link rel="stylesheet" href="css/stylesheet.css">
     <script src="https://d3js.org/d3.v5.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -52,6 +53,7 @@
     <label for="" id="NO2Text">hello</label>
 </div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
+
 <div id="scriptDiv">
     <script>
         var counter = -1;
@@ -62,17 +64,21 @@
                     bottom: 40,
                     left: 40
                 },
-                width = 960 - margin.left - margin.right,
-                height = 1250 - margin.top - margin.bottom;
+                width = 200 - margin.left - margin.right,
+                height = 200 - margin.top - margin.bottom;
 
             var y = d3.scale.ordinal().domain(d3.range(1)).rangePoints([0, height]);
 
             var svg = d3.select("body")
                 .append("svg")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-                .append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                .attr("width", 1200)
+                .attr("height", 1000)
+
+                .append("g").attr("transform", "translate(" + 500 + "," + 600 + ")");
+
+
             svg.selectAll("circle")
+
                 .data(y.domain())
                 .enter()
                 .append("circle")
@@ -121,12 +127,12 @@
 
                     console.log(color);
                     circle = circle.transition()
-                        .duration(1500)
+                        .duration(1500 - 1100)
                         .attr("stroke-width", 20)
                         .attr("r", 20)
                         .attr("fill", color)
                         .transition()
-                        .duration(1500)
+                        .duration(1500 - 1000)
                         .attr('stroke-width', 0.5)
                         .attr("r", 20 * C6H6Value)
                         .ease('sine')
