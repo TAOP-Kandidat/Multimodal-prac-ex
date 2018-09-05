@@ -64,17 +64,17 @@
                     bottom: 40,
                     left: 40
                 },
-                width = 200 - margin.left - margin.right,
+                width = 200 - margin.left - margin.right, //affect the placement of the circle
                 height = 200 - margin.top - margin.bottom;
 
             var y = d3.scale.ordinal().domain(d3.range(1)).rangePoints([0, height]);
 
             var svg = d3.select("body")
                 .append("svg")
-                .attr("width", 1200)
+                .attr("width", 1200) //size of svg, this can contain the circle
                 .attr("height", 1000)
 
-                .append("g").attr("transform", "translate(" + 500 + "," + 600 + ")");
+                .append("g").attr("transform", "translate(" + 500 + "," + 600 + ")"); //placement of circle
 
 
             svg.selectAll("circle")
