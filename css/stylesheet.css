@@ -1,6 +1,7 @@
 svg {
 
     position: relative;
+    margin-top: 130px;
 
 
 
@@ -15,7 +16,7 @@ img {
     z-index: 2;
 }
 div{
-    float: left;
+
     position: absolute;
 
 
