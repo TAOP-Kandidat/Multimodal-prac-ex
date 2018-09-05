@@ -38,6 +38,18 @@
     <label for="">Time: </label>
     <label for="" id="time"></label>
 </div>
+<div>
+    <img src="Images/Color%20line.png" alt="Italian Trulli">
+</div>
+<div class="something">
+    <br>
+    <br>
+    <label for="">C6H6: </label>
+    <label for="" id="C6H6Text">hello</label>
+    <br>
+    <label for="">NO2: </label>
+    <label for="" id="NO2Text">hello</label>
+</div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
     var counter = -1;
@@ -77,6 +89,10 @@
                 $("#time").text(json[counter]["Time"]);
                 var C6H6Value = json[counter]["C6H6(GT)"];
                 var NO2Value = json[counter]["NO2(GT)"];
+
+                $("#NO2Text").text(NO2Value);
+                $("#C6H6Text").text(C6H6Value);
+
                 console.log("C6h6 value: " + C6H6Value);
                 console.log("NO2 value: " + NO2Value);
                 var color;
@@ -124,5 +140,7 @@
     });
 
 </script>
+
+
 </body>
 </html>
